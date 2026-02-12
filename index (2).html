@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional website with AI-powered chatbot">
+    <title>My Professional Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 20px 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f8f9fa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover {
+            transform: scale(1.05);
+        }
+
+        .service-item .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* CHATBOT STYLES */
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #chatbot-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(102, 126, 234, 0.6);
+            }
+        }
+
+        #chatbot-icon:hover {
+            transform: scale(1.1);
+        }
+
+        #chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 380px;
+            height: 550px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #chatbot-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #chatbot-header h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        #chatbot-header .status {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        #close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        #close-chat:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        #chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #f8f9fa;
+        }
+
+        #chatbot-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #chatbot-messages::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        .message {
+            padding: 12px 16px;
+            border-radius: 18px;
+            max-width: 75%;
+            word-wrap: break-word;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .bot-message {
+            background: white;
+            color: #333;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 18px;
+            width: fit-content;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: #999;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #chatbot-input-area {
+            display: flex;
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        #user-input:focus {
+            border-color: #667eea;
+        }
+
+        #send-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin-left: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        #send-btn:hover {
+            transform: scale(1.05);
+        }
+
+        #send-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                gap: 30px;
+            }
+
+            #chatbot-window {
+                width: calc(100vw - 20px);
+                right: 10px;
+                left: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .logo {
+                font-size: 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">MyWebsite</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Welcome to My Professional Website</h1>
+        <p>Building amazing digital experiences with modern technology</p>
+        <a href="#contact" class="cta-button">Get Started</a>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">🚀</div>
+                    <h3>Fast Performance</h3>
+                    <p>Lightning-fast loading times and optimized performance for the best user experience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💎</div>
+                    <h3>Premium Quality</h3>
+                    <p>High-quality design and development standards that exceed expectations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔒</div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Enterprise-level security measures to protect your data and privacy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💬</div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock customer support through our AI-powered chatbot and team.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📱</div>
+                    <h3>Mobile Responsive</h3>
+                    <p>Perfectly optimized for all devices - desktop, tablet, and mobile.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">⚡</div>
+                    <h3>Modern Technology</h3>
+                    <p>Built with the latest web technologies and best practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <p>We are a team of passionate developers and designers dedicated to creating exceptional digital experiences. With years of experience in web development, we bring your ideas to life with cutting-edge technology and creative solutions.</p>
+                <p>Our mission is to deliver high-quality, user-friendly websites that not only look great but also perform exceptionally well. We believe in the power of good design combined with solid functionality.</p>
+                <p>Try our AI-powered chatbot in the bottom right corner - it's available 24/7 to answer your questions!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">🎨</div>
+                    <h3>Web Design</h3>
+                    <p>Beautiful, modern designs that captivate your audience</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">💻</div>
+                    <h3>Web Development</h3>
+                    <p>Robust, scalable web applications built with best practices</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">📊</div>
+                    <h3>SEO Optimization</h3>
+                    <p>Improve your visibility and rank higher in search results</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🛒</div>
+                    <h3>E-Commerce</h3>
+                    <p>Complete online store solutions for your business</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🤖</div>
+                    <h3>AI Integration</h3>
+                    <p>Smart chatbots and AI-powered features</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">📈</div>
+                    <h3>Analytics</h3>
+                    <p>Data-driven insights to grow your business</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>Have a project in mind? Let's work together!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="icon">📧</div>
+                    <h3>Email</h3>
+                    <p>info@mywebsite.com</p>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <h3>Phone</h3>
+                    <p>(555) 123-4567</p>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <h3>Location</h3>
+                    <p>123 Web Street, Internet City</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MyWebsite. All rights reserved. | Built with ❤️</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div id="chatbot-container">
+        <div id="chatbot-icon">💬</div>
+        <div id="chatbot-window" style="display: none;">
+            <div id="chatbot-header">
+                <div>
+                    <h3>AI Assistant</h3>
+                    <div class="status">● Online</div>
+                </div>
+                <button id="close-chat">×</button>
+            </div>
+            <div id="chatbot-messages"></div>
+            <div id="chatbot-input-area">
+                <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot JavaScript -->
+    <script>
+        // Chatbot Configuration
+        const config = {
+            welcomeMessage: "Hi! 👋 I'm your AI assistant. I can help you with:\n\n• Information about our services\n• Business hours & pricing\n• Contact details\n• General inquiries\n\nWhat would you like to know?",
+            typingDelay: 800,
+            responses: {
+                "hello": "Hello! 😊 How can I assist you today?",
+                "hi": "Hi there! What can I help you with?",
+                "hey": "Hey! How can I help?",
+                "help": "I'm here to help! You can ask me about:\n\n• Our services and features\n• Pricing information\n• Business hours\n• Contact information\n• How to get started\n\nWhat interests you?",
+                "services": "We offer a wide range of services:\n\n🎨 Web Design\n💻 Web Development\n📊 SEO Optimization\n🛒 E-Commerce Solutions\n🤖 AI Integration\n📈 Analytics & Insights\n\nWhich service would you like to know more about?",
+                "price": "Our pricing is flexible and tailored to your needs:\n\n💰 Starter: $999 (Basic website)\n💰 Professional: $2,999 (Advanced features)\n💰 Enterprise: Custom pricing\n\nAll packages include hosting, support, and maintenance for the first year. Would you like a detailed quote?",
+                "pricing": "Our pricing is flexible and tailored to your needs:\n\n💰 Starter: $999 (Basic website)\n💰 Professional: $2,999 (Advanced features)\n💰 Enterprise: Custom pricing\n\nAll packages include hosting, support, and maintenance for the first year. Would you like a detailed quote?",
+                "hours": "We're available:\n\n📅 Monday - Friday: 9:00 AM - 6:00 PM\n📅 Saturday: 10:00 AM - 4:00 PM\n📅 Sunday: Closed\n\nBut I'm here 24/7 to answer your questions! 🤖",
+                "contact": "You can reach us:\n\n📧 Email: info@mywebsite.com\n📞 Phone: (555) 123-4567\n📍 Address: 123 Web Street, Internet City\n\nFeel free to reach out anytime!",
+                "email": "You can email us at: info@mywebsite.com\n\nWe typically respond within 24 hours!",
+                "phone": "Call us at: (555) 123-4567\n\nOur phone lines are open Monday-Friday, 9 AM - 6 PM.",
+                "design": "Our web design services include:\n\n✨ Custom, modern designs\n📱 Mobile-responsive layouts\n🎨 Brand identity integration\n♿ Accessibility compliance\n🚀 Performance optimization\n\nWe create designs that not only look great but convert visitors into customers!",
+                "development": "Our development services cover:\n\n💻 Frontend development (React, Vue, etc.)\n⚙️ Backend development (Node.js, Python, etc.)\n🗄️ Database design & management\n🔌 API integration\n🔒 Security implementation\n\nWe use cutting-edge technology to build fast, secure, and scalable applications!",
+                "seo": "Our SEO services help you rank higher:\n\n🔍 Keyword research & optimization\n📊 Technical SEO audits\n📝 Content optimization\n🔗 Link building strategies\n📈 Performance tracking\n\nGet found by your target audience and grow your organic traffic!",
+                "support": "We provide comprehensive support:\n\n🛠️ Technical support\n🔄 Regular updates\n🐛 Bug fixes\n💡 Consultation\n📚 Training & documentation\n\nYour success is our priority!",
+                "start": "Getting started is easy:\n\n1️⃣ Contact us via email or phone\n2️⃣ Schedule a free consultation\n3️⃣ Discuss your project requirements\n4️⃣ Receive a custom proposal\n5️⃣ Start building your dream website!\n\nReady to begin? Reach out today!",
+                "portfolio": "We've worked with clients across various industries including:\n\n🏢 Corporate businesses\n🛍️ E-commerce stores\n🎓 Educational institutions\n🏥 Healthcare providers\n🍽️ Restaurants & cafes\n\nContact us to see examples relevant to your industry!",
+                "team": "Our team consists of:\n\n👨‍💻 Experienced developers\n🎨 Creative designers\n📊 SEO specialists\n🤝 Project managers\n💬 Support staff\n\nAll dedicated to delivering exceptional results!",
+                "thanks": "You're very welcome! 😊 Is there anything else I can help you with?",
+                "thank you": "Happy to help! Let me know if you need anything else.",
+                "bye": "Goodbye! 👋 Have a great day! Feel free to come back anytime you have questions.",
+                "website": "You're on our website right now! 😄 Is there something specific you'd like to see or know about?",
+                "chatbot": "I'm an AI-powered chatbot designed to help you 24/7! I can answer questions about our services, pricing, and more. I'm constantly learning to serve you better. How can I assist you today?",
+                "ai": "We specialize in AI integration including:\n\n🤖 Chatbots (like me!)\n🧠 Machine learning models\n💬 Natural language processing\n📊 Predictive analytics\n🎯 Personalization engines\n\nLet's discuss how AI can transform your business!",
+                "default": "I'm not quite sure about that. 🤔 Could you try asking about:\n\n• Our services\n• Pricing\n• Contact information\n• Business hours\n• How to get started\n\nOr type 'help' to see all available options!"
+            }
+        };
+
+        // DOM Elements
+        const chatbotIcon = document.getElementById('chatbot-icon');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const closeChat = document.getElementById('close-chat');
+        const sendBtn = document.getElementById('send-btn');
+        const userInput = document.getElementById('user-input');
+        const messagesContainer = document.getElementById('chatbot-messages');
+
+        // Event Listeners
+        chatbotIcon.addEventListener('click', openChatbot);
+        closeChat.addEventListener('click', closeChatbot);
+        sendBtn.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        // Open Chatbot
+        function openChatbot() {
+            chatbotWindow.style.display = 'flex';
+            chatbotIcon.style.display = 'none';
+            
+            if (messagesContainer.children.length === 0) {
+                setTimeout(() => {
+                    addMessage(config.welcomeMessage, 'bot');
+                }, 300);
+            }
+            
+            userInput.focus();
+        }
+
+        // Close Chatbot
+        function closeChatbot() {
+            chatbotWindow.style.display = 'none';
+            chatbotIcon.style.display = 'flex';
+        }
+
+        // Send Message
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+            
+            addMessage(message, 'user');
+            userInput.value = '';
+            
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                removeTypingIndicator();
+                const response = getResponse(message);
+                addMessage(response, 'bot');
+            }, config.typingDelay);
+        }
+
+        // Add Message
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            messageDiv.textContent = text;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Show Typing Indicator
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.id = 'typing';
+            typingDiv.innerHTML = '<span></span><span></span><span></span>';
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Remove Typing Indicator
+        function removeTypingIndicator() {
+            const typing = document.getElementById('typing');
+            if (typing) typing.remove();
+        }
+
+        // Get Bot Response
+        function getResponse(message) {
+            const lowerMessage = message.toLowerCase().trim();
+            
+            // Check for keyword matches
+            for (let key in config.responses) {
+                if (key === 'default') continue;
+                
+                if (lowerMessage === key || lowerMessage.includes(key)) {
+                    return config.responses[key];
+                }
+            }
+            
+            return config.responses.default;
+        }
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
